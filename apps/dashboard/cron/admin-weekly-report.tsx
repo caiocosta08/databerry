@@ -125,11 +125,11 @@ import prisma from '@chaindesk/prisma/client';
 
   await mailer.sendMail({
     from: {
-      name: 'Chaindesk',
+      name: 'Super Agentes',
       address: process.env.EMAIL_FROM!,
     },
     to: process.env.ADMIN_EMAIL,
-    subject: `📊 Weekly Admin Stats - Chaindesk`,
+    subject: `📊 Weekly Admin Stats - Super Agentes`,
     html: render(<AdminStats data={latestData as any} prevData={prevData} />),
   });
 

@@ -381,7 +381,8 @@ const handleGetSession = async (req: NextRequest, res: NextResponse) => {
       session = {
         authType: 'apiKey',
         user: undefined,
-        roles: [MembershipRole.OWNER],
+        // roles: [MembershipRole.OWNER], _comment: comentando para liberar acesso owner/admin
+        roles: [MembershipRole.OWNER, MembershipRole.ADMIN],
         organization: formatOrganizationSession(key.organization!),
         expires: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toDateString(),
       };

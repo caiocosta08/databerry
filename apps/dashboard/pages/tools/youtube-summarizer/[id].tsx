@@ -176,7 +176,8 @@ export default function SummaryPage({ output }: SummaryPageProps) {
                 )} */}
               </IconButton>
 
-              {session?.roles?.includes?.('SUPERADMIN') && (
+              {/* {session?.roles?.includes?.('SUPERADMIN') && (  _comment */}
+              {session?.roles?.includes?.('ADMIN') && (
                 <IconButton
                   color="danger"
                   variant="outlined"

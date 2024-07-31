@@ -64,7 +64,8 @@ export const createYoutubeSummary = async (
 
   const refresh =
     req.query.refresh === 'true' &&
-    req?.session?.roles?.includes?.('SUPERADMIN');
+    // req?.session?.roles?.includes?.('SUPERADMIN'); _comment
+    req?.session?.roles?.includes?.('ADMIN');
 
   // const videoSnippet = await Youtube.getVideoSnippetById(videoId!);
   const { category, keywords } = await YoutubeApi.getVideoMetadataFromHTML(

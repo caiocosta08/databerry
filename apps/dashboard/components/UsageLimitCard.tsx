@@ -38,7 +38,7 @@ const UsageLimitCard = ({ title, description, handleClose }: Props) => {
             {title || 'Usage limit reached'}
           </Typography>
           <Typography fontSize="sm" sx={{ opacity: 0.8 }}>
-            {`${description || 'Upgrade your plan to get higher usage'}`}
+            {`${description || 'Upgrade your plan to get higher usage :('}`}
           </Typography>
         </div>
       </Alert>

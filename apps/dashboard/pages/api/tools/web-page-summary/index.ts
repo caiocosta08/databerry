@@ -58,7 +58,8 @@ export const createWebPageSummary = async (
 
   const refresh =
     req.query.refresh === 'true' &&
-    req?.session?.roles?.includes?.('SUPERADMIN');
+    // req?.session?.roles?.includes?.('SUPERADMIN'); _comment
+    req?.session?.roles?.includes?.('ADMIN');
   const { url, date } = WebPageSummarySchema.parse(req.body);
 
   const { host } = new URL(url);

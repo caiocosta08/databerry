@@ -2,7 +2,6 @@ import cuid from 'cuid';
 import { NextApiResponse } from 'next';
 
 import { ApiError, ApiErrorType } from '@chaindesk/lib/api-error';
-import { sessionOrganizationInclude } from '@chaindesk/lib/auth';
 import {
   createLazyAuthHandler,
   respond,
@@ -12,18 +11,14 @@ import handleChatMessage, {
   ChatAgentArgs,
   ChatConversationArgs,
 } from '@chaindesk/lib/handle-chat-message';
-import logger from '@chaindesk/lib/logger';
 import cors from '@chaindesk/lib/middlewares/cors';
 import pipe from '@chaindesk/lib/middlewares/pipe';
-import rateLimit from '@chaindesk/lib/middlewares/rate-limit';
 import streamData from '@chaindesk/lib/stream-data';
 import { AppNextApiRequest, SSE_EVENT } from '@chaindesk/lib/types';
 import { ChatRequest } from '@chaindesk/lib/types/dtos';
 import {
   AgentVisibility,
   ConversationChannel,
-  MembershipRole,
-  Prisma,
   ToolType,
 } from '@chaindesk/prisma';
 import { prisma } from '@chaindesk/prisma/client';

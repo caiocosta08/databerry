@@ -200,7 +200,7 @@ export default function ModelInput({}: Props) {
 
           <Option
             value={AgentModelName.gpt_4o}
-            disabled={!session?.data?.organization?.isPremium}
+            // disabled={!session?.data?.organization?.isPremium} _comment
           >
             <ProviderLogo src={ModelConfig[AgentModelName.gpt_4o].icon} />
             <Chip size="sm" color="warning">
@@ -212,7 +212,7 @@ export default function ModelInput({}: Props) {
 
           <Option
             value={AgentModelName.gpt_4_turbo}
-            disabled={!session?.data?.organization?.isPremium}
+            // disabled={!session?.data?.organization?.isPremium} _comment
           >
             <ProviderLogo src={ModelConfig[AgentModelName.gpt_4_turbo].icon} />
             GPT-4 Turbo - 128k - {
@@ -223,7 +223,7 @@ export default function ModelInput({}: Props) {
 
           <Option
             value={AgentModelName.claude_3_haiku}
-            disabled={!session?.data?.organization?.isPremium}
+            // disabled={!session?.data?.organization?.isPremium} _comment
           >
             <ProviderLogo
               src={ModelConfig[AgentModelName.claude_3_haiku].icon}
@@ -234,7 +234,7 @@ export default function ModelInput({}: Props) {
           </Option>
           <Option
             value={AgentModelName.claude_3_sonnet}
-            disabled={!session?.data?.organization?.isPremium}
+            // disabled={!session?.data?.organization?.isPremium} _comment
           >
             <ProviderLogo
               src={ModelConfig[AgentModelName.claude_3_sonnet].icon}
@@ -245,7 +245,7 @@ export default function ModelInput({}: Props) {
           </Option>
           <Option
             value={AgentModelName.claude_3_opus}
-            disabled={!session?.data?.organization?.isPremium}
+            // disabled={!session?.data?.organization?.isPremium} _comment
           >
             <ProviderLogo
               src={ModelConfig[AgentModelName.claude_3_opus].icon}
@@ -263,7 +263,7 @@ export default function ModelInput({}: Props) {
           </Option> */}
           <Option
             value={AgentModelName.dolphin_mixtral_8x7b}
-            disabled={!session?.data?.organization?.isPremium}
+            // disabled={!session?.data?.organization?.isPremium} _comment
           >
             <ProviderLogo
               src={ModelConfig[AgentModelName.dolphin_mixtral_8x7b].icon}
@@ -274,7 +274,7 @@ export default function ModelInput({}: Props) {
           </Option>
           <Option
             value={AgentModelName.mixtral_8x22b}
-            disabled={!session?.data?.organization?.isPremium}
+            // disabled={!session?.data?.organization?.isPremium} _comment
           >
             <ProviderLogo
               src={ModelConfig[AgentModelName.mixtral_8x22b].icon}
@@ -388,43 +388,6 @@ export default function ModelInput({}: Props) {
         </Link>
       </Alert>
 
-      {/* <ToggleButtonGroup
-        value={currentPromptLevel}
-        onChange={(_, value) => {
-          if (value) {
-            setCurrentPromptLevel(value as any);
-          }
-        }}
-      >
-        <Button value="simple">Simple</Button>
-        <Button value="advanced">Advanced</Button>
-      </ToggleButtonGroup> */}
-
-      {/* <Tabs aria-label="tabs" defaultValue={1} sx={{ bgcolor: 'transparent' }}>
-        <TabList
-          disableUnderline
-          sx={{
-            p: 0.5,
-            gap: 0.5,
-            borderRadius: 'xl',
-            bgcolor: 'background.level1',
-            [`& .${tabClasses.root}[aria-selected="true"]`]: {
-              boxShadow: 'sm',
-              bgcolor: 'background.surface',
-
-              '::after': {
-                height: 0,
-              },
-            },
-          }}
-        >
-          <Tab>Simple</Tab>
-          <Tab>Advanced</Tab>
-        </TabList>
-        <TabPanel value={0}>Hello</TabPanel>
-        <TabPanel value={1}>World</TabPanel>
-      </Tabs> */}
-
       <FormControl>
         <Stack direction="row" alignItems={'end'} sx={{ mb: 1 }}>
           <Typography>System Prompt</Typography>
@@ -459,56 +422,6 @@ export default function ModelInput({}: Props) {
         <Textarea minRows={2} {...register('userPrompt')}></Textarea>
         <FormHelperText>{`{query} and {context} variables are respectively replaced by the user query and data retrieved from a datastore at runtime`}</FormHelperText>
       </FormControl>
-
-      {/* <FormControl>
-        <FormLabel>Prompt</FormLabel>
-
-        {promptType && (
-          <Chip sx={{ mb: 1 }} variant="soft" size="sm" color="warning">
-            {PromptTypesLabels[promptType]}
-          </Chip>
-        )}
-
-        <Stack mb={1} gap={1}>
-          {promptType && (
-            <Alert
-              startDecorator={<InfoRoundedIcon />}
-              size="sm"
-              color="neutral"
-              variant="soft"
-            >
-              {promptType === PromptType.customer_support &&
-                customerSupportPromptTypeDescription}
-              {promptType === PromptType.raw && rawPromptTypeDescription}
-            </Alert>
-          )}
-          {promptType === PromptType.customer_support && (
-            <Alert
-              startDecorator={<InfoRoundedIcon />}
-              size="sm"
-              color="neutral"
-              variant="soft"
-            >
-              Use the field below to give extra instructions.
-            </Alert>
-          )}
-        </Stack>
-
-        <Textarea
-          value={prompt || ''}
-          maxRows={21}
-          minRows={4}
-          {...register('prompt')}
-        />
-        <Button
-          variant="plain"
-          endDecorator={<ArrowForwardRoundedIcon />}
-          sx={{ mt: 1, ml: 'auto' }}
-          onClick={() => setIsPromptTemplatesModalOpen(true)}
-        >
-          Choose a Prompt Template
-        </Button>
-      </FormControl> */}
 
       <Modal
         open={isPromptTemplatesModalOpen}

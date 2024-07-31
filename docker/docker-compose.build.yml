@@ -1,4 +1,4 @@
-version: '3'
+version: '3.8'
 
 services:
   maildev:
@@ -43,9 +43,12 @@ services:
       "
   chaindesk_dashboard:
     build:
-      context: ../
+      context: ..
+      dockerfile: Dockerfile
       args:
         - SCOPE=dashboard
+    environment:
+      - SCOPE=dashboard
     depends_on:
       - pgdb
     ports:
@@ -55,7 +58,8 @@ services:
     env_file: ../.env.local
   chaindesk_datasource_loader:
     build:
-      context: ../
+      context: ..
+      dockerfile: Dockerfile
       args:
         - SCOPE=dashboard
     depends_on:

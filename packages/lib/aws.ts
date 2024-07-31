@@ -4,13 +4,14 @@ export const s3 = new S3({
   signatureVersion: 'v4',
   accessKeyId: process.env.APP_AWS_ACCESS_KEY,
   secretAccessKey: process.env.APP_AWS_SECRET_KEY,
-  region: process.env.APP_AWS_REGION,
-  ...(process.env.APP_AWS_S3_ENDPOINT
-    ? {
-        endpoint: process.env.APP_AWS_S3_ENDPOINT,
-        s3ForcePathStyle: process.env.APP_AWS_S3_FORCE_PATH_STYLE === 'true',
-      }
-    : {}),
+  // region: process.env.APP_AWS_REGION, _comment
+  region: 'us-east-1',
+  // ...(process.env.APP_AWS_S3_ENDPOINT
+  //   ? {
+  //       endpoint: process.env.APP_AWS_S3_ENDPOINT,
+  //       s3ForcePathStyle: process.env.APP_AWS_S3_FORCE_PATH_STYLE === 'true',
+  //     }
+  //   : {}),
 });
 
 export async function deleteFolderFromS3Bucket(

@@ -6,16 +6,18 @@
     "prepare": "husky install",
     "start": "next start",
     "dev": "FORCE_COLOR=1 pnpm docker:up && turbo run dev --filter=dashboard... --filter=lp... --filter=docs... --parallel --no-cache",
+    "dev:dev": "FORCE_COLOR=1 pnpm docker:up && turbo run dev --filter=dashboard... --parallel --no-cache",
     "build": "FORCE_COLOR=1 turbo run build --filter=dashboard... --filter=lp... --filter=!react-email-client --parallel",
+    "build:dev": "FORCE_COLOR=1 turbo run build --filter=dashboard... --filter=!react-email-client --parallel",
     "dotenv": "dotenv -e .env.local",
     "typecheck": "FORCE_COLOR=1 turbo typecheck",
     "lint": "FORCE_COLOR=1 turbo run lint --filter=!react-email-client",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,mdx}\"",
     "check": "pnpm list-mismatches && turbo run check --filter=docs && pnpm format && pnpm typecheck && pnpm lint",
-    "docker:up": "docker compose -f docker/docker-compose.deps.yml --env-file docker/docker.env up -d",
-    "docker:down": "docker compose -f docker/docker-compose.deps.yml down",
-    "docker:build:up": "docker compose -f docker/docker-compose.build.yml --env-file docker/docker.env up",
-    "docker:nuke": "docker compose -f docker-compose.dev.yml down --volumes --remove-orphans",
+    "docker:up": "docker compose --file docker/docker-compose.deps.yml --env-file docker/docker.env up -d",
+    "docker:down": "docker compose --file docker/docker-compose.deps.yml down",
+    "docker:build:up": "docker compose --file docker/docker-compose.build.yml --env-file docker/docker.env up",
+    "docker:nuke": "docker compose --file docker-compose.dev.yml down --volumes --remove-orphans",
     "list-packages": "npx syncpack list",
     "list-mismatches": "npx syncpack list-mismatches",
     "fix-mismatches": "npx syncpack fix-mismatches && pnpm install",
@@ -57,8 +59,11 @@
     "tsx": "^3.13.0",
     "turbo": "^1.11.2"
   },
-  "packageManager": "pnpm@8.7.5",
+  "packageManager": "pnpm@9.1.0",
   "@parcel/resolver-default": {
     "packageExports": true
+  },
+  "dependencies": {
+    "next": "14.2"
   }
 }

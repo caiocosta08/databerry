@@ -373,7 +373,7 @@ function OrganizationForm({}: Props) {
                           onClick={() => handleDeleteMember(member?.id)}
                           disabled={
                             state.isDeletingMember ||
-                            member.role === MembershipRole.OWNER ||
+                            // member.role === MembershipRole.OWNER || _comment: comentando para liberar acesso owner/admin
                             !hasAdminRole(session?.roles)
                           }
                         >
@@ -392,13 +392,6 @@ function OrganizationForm({}: Props) {
           </Stack>
         )}
       </SettingCard>
-
-      {/* <stripe-pricing-table
-        pricing-table-id={process.env.NEXT_PUBLIC_STRIPE_PRICING_TABLE_SEAT_ID}
-        publishable-key={process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY}
-        client-reference-id={session?.organization?.id}
-        customer-email={session?.user?.email}
-      ></stripe-pricing-table> */}
     </Stack>
   );
 }

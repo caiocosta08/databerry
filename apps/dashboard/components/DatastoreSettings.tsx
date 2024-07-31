@@ -1,5 +1,4 @@
 import { zodResolver } from '@hookform/resolvers/zod';
-import AddIcon from '@mui/icons-material/Add';
 import ArrowForwardRoundedIcon from '@mui/icons-material/ArrowForwardRounded';
 import AutorenewIcon from '@mui/icons-material/Autorenew';
 import DeleteIcon from '@mui/icons-material/Delete';
@@ -13,7 +12,6 @@ import Divider from '@mui/joy/Divider';
 import FormControl from '@mui/joy/FormControl';
 import FormHelperText from '@mui/joy/FormHelperText';
 import FormLabel from '@mui/joy/FormLabel';
-import IconButton from '@mui/joy/IconButton';
 import Stack from '@mui/joy/Stack';
 import Textarea from '@mui/joy/Textarea';
 import Typography from '@mui/joy/Typography';
@@ -21,7 +19,7 @@ import axios from 'axios';
 import mime from 'mime-types';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import React, { useEffect, useRef } from 'react';
+import React, { useRef } from 'react';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
 import useSWRMutation from 'swr/mutation';
@@ -41,14 +39,6 @@ import { QdrantSchema as Schema } from '@chaindesk/lib/types/models';
 import { Datastore, DatastoreVisibility, Prisma } from '@chaindesk/prisma';
 import useStateReducer from '@chaindesk/ui/hooks/useStateReducer';
 import Input from '@chaindesk/ui/Input';
-
-import UsageLimitCard from './UsageLimitCard';
-import UserFree from './UserFree';
-import UserPremium from './UserPremium';
-
-type Props = {
-  datastoreId: string;
-};
 
 type Schema = z.infer<typeof Schema>;
 
@@ -438,56 +428,6 @@ function DatastoreSettings() {
       </FormControl>
 
       <Divider sx={{ my: 4 }} />
-
-      {/* <Box id="chatgpt-plugin">
-        {getDatastoreQuery?.data?.id && (
-          <FormControl sx={{ gap: 1 }}>
-            <FormLabel>ChatGPT Plugin</FormLabel>
-
-            <Alert
-              color="neutral"
-              startDecorator={<HelpOutlineRoundedIcon />}
-              endDecorator={
-                <Link
-                  href="https://docs.chaindesk.ai/integrations/chatgpt-plugin"
-                  target="_blank"
-                >
-                  <Button
-                    variant="plain"
-                    size="sm"
-                    endDecorator={<ArrowForwardRoundedIcon />}
-                  >
-                    Documentation
-                  </Button>
-                </Link>
-              }
-            >
-              Learn more about the ChatGPT plugin installation
-            </Alert>
-
-            <UserFree>
-              <Alert color="warning">
-                <a href="https://openai.com/waitlist/plugins" target="blank">
-                  ChatGPT developer access is required:{' '}
-                  <span className="underline">join the waitlist</span>
-                </a>
-              </Alert>
-
-              <UsageLimitCard
-                title="Premium Feature"
-                description="Upgrade your plan to access this feature"
-              />
-            </UserFree>
-            <UserPremium>
-              {getDatastoreQuery?.data && (
-                <PluginSettings datastore={getDatastoreQuery?.data} />
-              )}
-            </UserPremium>
-          </FormControl>
-        )}
-      </Box>
-
-      <Divider sx={{ my: 4 }} /> */}
 
       <FormControl sx={{ gap: 1 }}>
         <FormLabel>Delete Datastore</FormLabel>

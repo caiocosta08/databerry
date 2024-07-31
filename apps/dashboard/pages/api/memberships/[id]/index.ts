@@ -23,9 +23,10 @@ export const deleteMembership = async (
     },
   });
 
-  if (membership?.role === MembershipRole.OWNER) {
-    throw new ApiError(ApiErrorType.UNAUTHORIZED);
-  }
+  // _comment: comentando para liberar função owner/admin
+  // if (membership?.role === MembershipRole.OWNER) {
+  // throw new ApiError(ApiErrorType.UNAUTHORIZED);
+  // }
 
   if (membership?.organizationId !== req.session?.organization?.id) {
     throw new ApiError(ApiErrorType.UNAUTHORIZED);

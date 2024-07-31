@@ -185,7 +185,8 @@ function AgentDeployTab(props: Props) {
               action: async () => {
                 whatsappModal.open();
               },
-              isPremium: true,
+              // isPremium: true,
+              isPremium: false,
             },
             {
               hidden: false,
@@ -202,11 +203,13 @@ function AgentDeployTab(props: Props) {
               action: async () => {
                 shopifyModal.open();
               },
-              isPremium: true,
+              // isPremium: true,
+              isPremium: false,
             },
             {
               name: 'Zapier',
-              isPremium: true,
+              // isPremium: true,
+              isPremium: false,
               icon: (
                 <img
                   className="w-8"
@@ -237,7 +240,8 @@ function AgentDeployTab(props: Props) {
               action: async () => {
                 telegramModal.open();
               },
-              isPremium: true,
+              // isPremium: true,
+              isPremium: false,
             },
             {
               name: 'Slack',
@@ -250,14 +254,16 @@ function AgentDeployTab(props: Props) {
                   alt="slack logo"
                 ></Image>
               ),
-              isPremium: true,
+              // isPremium: true,
+              isPremium: false,
               action: () => {
                 setState({ isSlackModalOpen: true });
               },
             },
             {
               name: 'Crisp',
-              isPremium: true,
+              // isPremium: true,
+              isPremium: false,
               icon: (
                 <Image
                   className="w-20"

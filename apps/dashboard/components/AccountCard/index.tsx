@@ -189,6 +189,8 @@ function AccountCard({}: Props) {
                   accountConfig?.[session?.data?.organization?.currentPlan!]
                     ?.limits?.maxAgents
                 }
+                // } _comment
+                // max={2}
                 label={'Agents'}
               />
             )}

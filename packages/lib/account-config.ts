@@ -44,16 +44,16 @@ const config: {
       },
     },
     limits: {
-      maxAgents: 1,
-      maxAgentsQueries: 100,
-      maxDatastores: 1,
-      maxDatasources: 10, // per datastore
-      maxFileSize: 1000000, // 1 MB
-      maxDataProcessing: 5000000, // 5 MB
-      maxSummary: 10,
-      maxWebsiteURL: 25,
-      maxSeats: 1,
-      maxStoredTokens: 20000,
+      maxAgents: 1_000,
+      maxAgentsQueries: 1_000_000,
+      maxDatastores: 1_000,
+      maxDatasources: 1_000, // per datastore
+      maxFileSize: 1_000_000_000, // 1 MB
+      maxDataProcessing: 5_000_000_000, // 5 MB
+      maxSummary: 1_000,
+      maxWebsiteURL: 2_500,
+      maxSeats: 1_000,
+      maxStoredTokens: 2_000_000,
     },
   },
   [SubscriptionPlan.level_0_5]: {

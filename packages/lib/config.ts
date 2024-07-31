@@ -160,10 +160,10 @@ export const ModelConfig: Record<
   },
 };
 
-export const appUrl = 'https://app.chaindesk.ai';
-export const apiUrl = 'https://api.chaindesk.ai';
-// export const appUrl = process.env.NEXT_PUBLIC_DASHBOARD_URL as string;
-// export const apiUrl = process.env.NEXT_PUBLIC_API_URL as string;
+// export const appUrl = 'https://app.chaindesk.ai';
+// export const apiUrl = 'https://api.chaindesk.ai'; #comment# comentando para buscar a URL no .env.local
+export const appUrl = process.env.NEXT_PUBLIC_DASHBOARD_URL as string;
+export const apiUrl = process.env.NEXT_PUBLIC_API_URL as string;
 
 export const youtubeSummaryTool = {
   sitemapPageSize: 1000,

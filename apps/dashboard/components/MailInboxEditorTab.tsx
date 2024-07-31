@@ -11,7 +11,7 @@ import {
   Textarea,
 } from '@mui/joy';
 import { useSession } from 'next-auth/react';
-import React, { useRef } from 'react';
+import React from 'react';
 import useSWRMutation from 'swr/mutation';
 
 import { generateActionFetcher, HTTP_METHOD } from '@chaindesk/lib/swr-fetcher';
@@ -20,7 +20,6 @@ import AlertPremiumFeature from './AlertPremiumFeature';
 import Input from './Input';
 import MailInboxFormProvider from './MailInboxFormProvider';
 import MailInboxMessagePreview from './MailInboxMessagePreview';
-import UsageLimitCard from './UsageLimitCard';
 import UserFree from './UserFree';
 import UserPremium from './UserPremium';
 

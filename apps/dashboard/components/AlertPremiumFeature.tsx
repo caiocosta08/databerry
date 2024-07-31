@@ -49,11 +49,8 @@ const AlertPremiumFeature = ({ title, description }: Props) => {
       >
         <Stack sx={{ width: '100%' }}>
           <Typography fontWeight="lg" mt={0.25}>
-            {title || 'Usage limit reached'}
+            {title || 'Usage limit reached :('}
           </Typography>
-          {/* <Typography fontSize="sm" sx={{ opacity: 0.8 }}>
-            {`${description || 'Upgrade your plan to get higher usage'}`}
-          </Typography> */}
         </Stack>
         {controls}
       </Stack>

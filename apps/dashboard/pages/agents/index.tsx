@@ -7,18 +7,14 @@ import {
   Box,
   Breadcrumbs,
   Button,
-  Card,
   Divider,
-  Link as JoyLink,
   Modal,
   Sheet,
   Stack,
   Typography,
 } from '@mui/joy';
-import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { GetServerSidePropsContext } from 'next/types';
 import { useSession } from 'next-auth/react';
 import { ReactElement } from 'react';
 import * as React from 'react';
@@ -32,18 +28,14 @@ import AgentTable from '@app/components/AgentTable';
 import Layout from '@app/components/Layout';
 import SettingCard from '@app/components/ui/SettingCard';
 import UsageLimitModal from '@app/components/UsageLimitModal';
-import { getProductFromHostname } from '@app/hooks/useProduct';
 
 import accountConfig from '@chaindesk/lib/account-config';
-import { CUSTOMER_SUPPORT_V3 } from '@chaindesk/lib/prompt-templates';
 import { fetcher } from '@chaindesk/lib/swr-fetcher';
 import { RouteNames } from '@chaindesk/lib/types';
-import { withAuth } from '@chaindesk/lib/withAuth';
-import { Agent, AgentModelName, Prisma } from '@chaindesk/prisma';
+import { Agent, Prisma } from '@chaindesk/prisma';
 import useStateReducer from '@chaindesk/ui/hooks/useStateReducer';
 
 import { getAgents } from '../api/agents';
-import { getDatastores } from '../api/datastores';
 
 export default function AgentsPage() {
   const router = useRouter();
@@ -71,11 +63,6 @@ export default function AgentsPage() {
           xs: 2,
           md: 6,
         },
-        pt: {
-          // xs: `calc(${theme.spacing(2)} + var(--Header-height))`,
-          // sm: `calc(${theme.spacing(2)} + var(--Header-height))`,
-          // md: 3,
-        },
         pb: {
           xs: 2,
           sm: 2,
@@ -85,7 +72,6 @@ export default function AgentsPage() {
         display: 'flex',
         flexDirection: 'column',
         minWidth: 0,
-        // height: '100dvh',
         width: '100%',
         gap: 1,
       })}
@@ -118,38 +104,26 @@ export default function AgentsPage() {
           my: 1,
           gap: 1,
           flexWrap: 'wrap',
-          // '& > *': {
-          //   minWidth: 'clamp(0px, (500px - 100%) * 999, 100%)',
-          //   flexGrow: 1,
-          // },
         }}
       >
         <Typography level="h1" fontSize="xl4">
           Agents
         </Typography>
-        {/* <Box sx={{ flex: 999999 }} /> */}
         <Box sx={{ display: 'flex', gap: 1, '& > *': { flexGrow: 1 } }}>
-          {/* <Button
-            variant="outlined"
-            color="neutral"
-            startDecorator={<i data-feather="download-cloud" />}
-          >
-            Download PDF
-          </Button> */}
           <Button
             variant="solid"
             color="primary"
             startDecorator={<AddIcon />}
             onClick={() => {
-              if (
-                (getAgentsQuery?.data?.length || 0) >=
-                accountConfig[session?.organization?.currentPlan!]?.limits
-                  ?.maxAgents
-              ) {
-                return setState({
-                  isUsageLimitModalOpen: true,
-                });
-              }
+              // if (
+              //   (getAgentsQuery?.data?.length || 0) >=
+              //   accountConfig[session?.organization?.currentPlan!]?.limits
+              //     ?.maxAgents
+              // ) {
+              //   return setState({
+              //     isUsageLimitModalOpen: true,
+              //   });
+              // } _comment
 
               setState({ isAgentModalOpen: true });
             }}
@@ -228,8 +202,6 @@ export default function AgentsPage() {
                   color="primary"
                   loading={mutation.isMutating}
                   sx={{ ml: 'auto', mt: 2 }}
-                  // disabled={!methods.formState.isValid}
-                  // startDecorator={<SaveRoundedIcon />}
                 >
                   {'Create'}
                 </Button>
@@ -253,13 +225,3 @@ export default function AgentsPage() {
 AgentsPage.getLayout = function getLayout(page: ReactElement) {
   return <Layout>{page}</Layout>;
 };
-
-// export const getServerSideProps = withAuth(
-//   async (ctx: GetServerSidePropsContext) => {
-//     return {
-//       props: {
-//         product: getProductFromHostname(ctx?.req?.headers?.host),
-//       },
-//     };
-//   }
-// );
